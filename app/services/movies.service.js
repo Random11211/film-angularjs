@@ -1,16 +1,16 @@
-app.factory('moviesFactory', ['$http', function($http){
-    var apiKey =  '15cb621';
+app.factory('moviesFactory', ['$http', function ($http) {
+    var apiKey = '15cb621';
     var apiURL = 'http://www.omdbapi.com/';
     var url = apiURL + '?apikey=' + apiKey;
-    var dataFactory = {};
+    var moviesFactory = {};
 
-    dataFactory.getMovie = function (id) {
+    moviesFactory.getMovie = function (id) {
         return $http.get(url + '&i=' + id);
     };
 
-    dataFactory.getMovies = function (search) {
+    moviesFactory.getMovies = function (search) {
         return $http.get(url + '&s=' + search);
     };
 
-    return dataFactory;
+    return moviesFactory;
 }]);

@@ -20,29 +20,3 @@
     font-family: Arial;
     margin-left: 30px;
 }
-
-.search {
-    margin-right: 30px;
-    width: 20%;
-    padding: 30px;
-    float: right;
-}
-
-.search input {
-    width: 250px;
-    height: 40px;
-    font-size: 16px;
-}
-
-.search button {
-    font-size: 20px;
-    height: 40px;
-    width: 40px;
-    background-color: rgb(9, 50, 63);
-    color: white;
-}
-
-.search button:hover {
-    color: black;
-    ;
-}
