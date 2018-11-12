@@ -11,14 +11,14 @@
 }
 
 .col1 {
-    width: 15%;
+   width: 185px;
     float: left;
 }
 
-.col1 img {
+/*.col1 img {
     width: 100%;
     height: auto;
-}
+}*/
 
 .col2 {
     width: 60%;

@@ -4,19 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title>Nazwa serwisu</title>
-    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
-    <link rel="stylesheet" href="app/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-route.js"></script>
     <script src="/app/app.module.js"></script>
+    <script src="/app/app.config.js"></script>
     <script src="/app/common/navbar/navbar.component.js"></script>
     <script src="/app/common/footer/footer.component.js"></script>
     <script src="/app/components/movieDetails/movieDetails.component.js"></script>
+    <script src="/app/components/movieDetails/movieDetails.controller.js"></script>
+
     <script src="/app/common/search/search.component.js"></script>
+    <script src="/app/components/nowPlaying/nowPlaying.component.js"></script>
+    <script src="/app/components/nowPlaying/nowPlaying.controller.js"></script>
     <script src="/app/services/movies.service.js"></script>
     <script src="app/common/search/search.controller.js"></script>
-
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="app/app.css">
 </head>
 
 <body ng-app="moviesApp">
@@ -54,13 +60,7 @@
             <h2>Tytuł</h2>
         </div>
     </div>
-    <div class="bazaFilmow">
-        <h1>Baza filmów</h1>
-        <movie-details></movie-details>
-        <movie-details></movie-details>
-        <movie-details></movie-details>
-        <movie-details></movie-details>
-    </div>
+    <div ng-view></div>
     <footer></footer>
 
 </body>

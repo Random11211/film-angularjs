@@ -1,5 +1,5 @@
-app.controller('SearchController', ['$scope', 'moviesFactory', function ($scope, moviesFactory) {
-    $scope.title;
+app.controller('SearchController', ['$scope', 'moviesFactory', '$routeParams', function ($scope, $routeParams, moviesFactory) {
+    $scope.title = $routeParams.query;
     $scope.movies;
 
     $scope.searchMovies = function searchMovies() {

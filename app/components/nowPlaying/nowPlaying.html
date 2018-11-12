@@ -1,0 +1,5 @@
+<link rel="stylesheet" href="/app/components/nowPlaying/nowPlaying.css">
+<div class="np-list">
+    <h1>NOW PLAYING</h1>
+    <movie-details ng-repeat="movie in $ctrl.nowPlayingList | limitTo:10" movie="movie"></movie-details>
+</div>
