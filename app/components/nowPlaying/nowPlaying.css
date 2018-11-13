@@ -2,8 +2,6 @@
     width: 100%;
     padding: 20px;
     background-color: black;
-    font-size: 15px;
-    color: white;
 }
 
 .np-list:after {
@@ -12,8 +10,8 @@
     clear: both;
 }
 
-.np-list h1 {
+/*.np-list h1 {
     font-size: 25px;
     margin-left: 30px;
     color: white;
-}
+}*/

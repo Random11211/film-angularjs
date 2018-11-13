@@ -15,5 +15,9 @@ app.factory('moviesFactory', ['$http', function ($http) {
         return $http.get(apiURL + '/movie/now_playing?' + apiKey);
     }
 
+    moviesFactory.getCredits = function(id) {
+        return $http.get(apiURL + '/movie/' + id + '/credits?' + apiKey);
+    }
+
     return moviesFactory;
 }]);

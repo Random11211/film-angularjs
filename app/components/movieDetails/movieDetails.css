@@ -1,5 +1,5 @@
 .movie-details {
-    width: 100%;
+    width: 50%;
     float: left;
     padding: 30px 20px 30px 20px;
     border-bottom: 1px solid rgb(63, 59, 59);
@@ -11,7 +11,6 @@
 }
 
 .col1 {
-   width: 185px;
     float: left;
 }
 
@@ -26,12 +25,15 @@
     padding: 10px 10px 10px 30px;
 }
 
-.col2 h2 {
+.col2 h1 {
     text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight:800;
 }
 
-.col2 h3 {
-    font-size: 15px;
+.col2 h2 {
+    font-weight:600;
 }
 
 .col3 {
@@ -42,6 +44,32 @@
 }
 
 .col3 h2 {
-    padding-top: 100px;
-    font-size: 20px;
+    padding-top: 50px;
+}
+
+.col3 button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #f44336;
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.details {
+    margin-top: 15px;
+}
+
+.cast-list li, .directors-list li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    text-align: center;
 }
