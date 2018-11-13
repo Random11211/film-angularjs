@@ -19,5 +19,8 @@ app.factory('moviesFactory', ['$http', function ($http) {
         return $http.get(apiURL + '/movie/' + id + '/credits?' + apiKey);
     }
 
+    // moviesFactory.sortBy = function(attr){
+    //     return $http.get(apiURL + '/discover/movie?' + apiKey + 'sort_by=' + attr);
+    // }
     return moviesFactory;
 }]);
