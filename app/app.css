@@ -57,6 +57,153 @@ body {
     box-sizing: border-box;
 }
 
+.footer {
+    text-align: center;
+    background-color: rgb(9, 50, 63);
+    color: white;
+}
+
+.navbar-wrapper {
+    top: 0;
+    background-color: black;
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 75%;
+    float: left;
+    text-align: left;
+    margin: 20px 20px;
+}
+
+.logo h1 {
+    color: red;
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.search {
+    margin-right: 30px;
+    width: 100%;
+    padding: 30px;
+    float: right;
+}
+
+.search input {
+    width: 250px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.search button {
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(9, 50, 63);
+    color: white;
+}
+
+.search button:hover {
+    color: black;
+}
+
+.movie-details {
+    width: 50%;
+    float: left;
+    padding: 30px 20px 30px 20px;
+    border-bottom: 1px solid rgb(63, 59, 59);
+}
+
+.movie-details:hover {
+    border-left: 6px solid red;
+    background-color: rgb(61, 59, 59);
+}
+
+.col1 {
+    float: left;
+}
+
+/*.col1 img {
+    width: 100%;
+    height: auto;
+}*/
+
+.col2 {
+    width: 60%;
+    float: left;
+    padding: 10px 10px 10px 30px;
+}
+
+.col2 h1 {
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight:800;
+}
+
+.col2 h2 {
+    font-weight:600;
+}
+
+.col3 {
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.col3 h2 {
+    padding-top: 50px;
+}
+
+.col3 button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #f44336;
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.details {
+    margin-top: 15px;
+}
+
+.cast-list li, .directors-list li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.np-list {
+    width: 100%;
+    padding: 20px;
+    background-color: black;
+}
+
+.np-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.np-list h1 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 900;
+}
+
 /*=====================*/
 
 .twojaBiblioteka {
