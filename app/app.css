@@ -57,7 +57,7 @@ body {
     box-sizing: border-box;
 }
 
-.footer {
+footer {
     text-align: center;
     background-color: rgb(9, 50, 63);
     color: white;

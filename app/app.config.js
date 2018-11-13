@@ -7,10 +7,14 @@ app.config(['$routeProvider', function ($routeProvider) {
             template: '<users-list></users-list>'
         })
         .when('/movies-list', {
-            template: '<movies-list></movies-list>'
+            template: '<movies-library></movies-library>'
         })
         .when('/details/:id', {
             template: '<movie-details><movie-details>'
         })
         .otherwise({ redirectTo: '/' });;
 }]);
+
+app.config(['localStorageServiceProvider', function(localStorageServiceProvider){
+    localStorageServiceProvider.setPrefix('movies-app');
+}])

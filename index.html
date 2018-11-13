@@ -6,18 +6,20 @@
     <title>Nazwa serwisu</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js "></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-route.js"></script>
+    <script src="/node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+
     <script src="/app/app.module.js"></script>
     <script src="/app/app.config.js"></script>
-    <script src="/app/common/navbar/navbar.component.js"></script>
-    <script src="/app/common/footer/footer.component.js"></script>
+    <script src="/app/common/moviesLibrary/moviesLibrary.component.js"></script>
+    <script src="/app/common/moviesLibrary/moviesLibrary.controller.js"></script>
+    <script src="/app/common/search/search.component.js"></script>
+    <script src="app/common/search/search.controller.js"></script>
     <script src="/app/components/movieDetails/movieDetails.component.js"></script>
     <script src="/app/components/movieDetails/movieDetails.controller.js"></script>
-
-    <script src="/app/common/search/search.component.js"></script>
     <script src="/app/components/nowPlaying/nowPlaying.component.js"></script>
     <script src="/app/components/nowPlaying/nowPlaying.controller.js"></script>
-    <script src="/app/services/movies.service.js"></script>
-    <script src="app/common/search/search.controller.js"></script>
+    <script src="/app/services/movies.factory.js"></script>
+    <script src="/app/services/moviesLibrary.factory.js"></script>
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
@@ -26,42 +28,20 @@
 
 <body ng-app="moviesApp">
     <header>
-        <navbar></navbar>
+        <div class="navbar-wrapper">
+            <div class="logo">
+                <h1>@Nazwa serwisu</h1>
+            </div>
+            <search></search>
+        </div>
     </header>
-    <div class="twojaBiblioteka">
-        <h1>Twoja biblioteka</h1>
-        <div class="twojFilm">
-            <div class="specialButton">
-                <button class="deleteButton">-</button>
-                <a href="#"><img src="1.jpg"></a>
-            </div>
-            <h2>Tytuł</h2>
-        </div>
-        <div class="twojFilm">
-            <div class="specialButton">
-                <button class="deleteButton">-</button>
-                <a href="#"><img src="1.jpg"></a>
-            </div>
-            <h2>Tytuł</h2>
-        </div>
-        <div class="twojFilm">
-            <div class="specialButton">
-                <button class="deleteButton">-</button>
-                <a href="#"><img src="1.jpg"></a>
-            </div>
-            <h2>Tytuł</h2>
-        </div>
-        <div class="twojFilm">
-            <div class="specialButton">
-                <button class="deleteButton">-</button>
-                <a href="#"><img src="1.jpg"></a>
-            </div>
-            <h2>Tytuł</h2>
-        </div>
-    </div>
+    <movies-library></movies-library>
+    
     <div ng-view></div>
-    <footer></footer>
-
+    <footer>
+        <i>Project created by Natalia Orłowska & Klaudia Suchocka</i>
+    </footer>
+    
 </body>
 
 </html>

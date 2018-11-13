@@ -1,1 +1,1 @@
-var app = angular.module('moviesApp', ['ngRoute']);
+var app = angular.module('moviesApp', ['ngRoute', 'LocalStorageModule']);
