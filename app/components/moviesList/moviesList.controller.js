@@ -1,28 +1,20 @@
 app.controller('MoviesListController', ['moviesFactory', 'moviesLibraryFactory', function (moviesFactory, moviesLibraryFactory) {
     var ctrl = this;
 
-    function getCredits(movie) {
-        var credits = [];
-
+    ctrl.getCredits = function (movie) {
         moviesFactory.getCredits(movie.id)
             .then(function (response) {
-                credits = response.data;
-                movie.cast = getCast(credits);
-                movie.directors = getDirectors(credits);
+                movie.cast = response.cast;
+                movie.directors = ctrl.getDirectors(response.crew);
             }, function (error) {
-                console.log("ERROR: " + error.message);
+                console.log(error);
             });
-        return credits;
     }
 
-    function getCast(credits) {
-        return credits.cast;
-    }
-
-    function getDirectors(credits) {
+    ctrl.getDirectors = function (crew) {
         var directors = [];
 
-        (credits.crew).forEach(function (person) {
+        crew.forEach(function (person) {
             if (person.job === 'Director') {
                 directors.push(person);
             }
@@ -35,9 +27,12 @@ app.controller('MoviesListController', ['moviesFactory', 'moviesLibraryFactory',
         moviesLibraryFactory.addMovie(movie);
     };
 
-    ctrl.$onInit = function () {
-        for (movie in ctrl.list) {
-            movie.credits = getCredits(movie);
+    ctrl.$onChanges = function (changes) {
+        if(ctrl.list != null) {
+            (ctrl.list).forEach(function (movie) {
+                ctrl.getCredits(movie);
+            });
         }
+        
     }
 }]);

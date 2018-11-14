@@ -8,9 +8,9 @@ app.controller('SearchResultsController', ['$routeParams', 'moviesFactory', func
         var queryString = ctrl.title.replace(/ /g, '+');
         moviesFactory.getMovies(queryString)
             .then(function (response) {
-                ctrl.movies = response.data.results;
+                ctrl.movies = response;
             }, function (error) {
-                console.log("ERROR:" + error.message);
+                console.log(error);
             });
     };
 
