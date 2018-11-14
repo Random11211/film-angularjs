@@ -7,8 +7,8 @@ app.factory('moviesFactory', ['$http', function ($http) {
         return $http.get(apiURL + '/movie/' + id + '?' + apiKey);
     };
 
-    moviesFactory.searchMovies = function (search) {
-        return $http.get(apiURL + '/search/movie?query=' + search + +'&' + apiKey +'&include_adult=false');
+    moviesFactory.getMovies = function (title) {
+        return $http.get(apiURL + '/search/movie?query=' + title + '&' + apiKey +'&include_adult=false');
     };
 
     moviesFactory.getNowPlaying = function() {

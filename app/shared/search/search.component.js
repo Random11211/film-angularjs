@@ -1,4 +1,4 @@
 app.component('search', {
-    templateUrl: 'app/common/search/search.html',
+    templateUrl: 'app/shared/search/search.html',
     controller: 'SearchController'
 });

@@ -10,14 +10,18 @@
 
     <script src="/app/app.module.js"></script>
     <script src="/app/app.config.js"></script>
-    <script src="/app/common/moviesLibrary/moviesLibrary.component.js"></script>
-    <script src="/app/common/moviesLibrary/moviesLibrary.controller.js"></script>
-    <script src="/app/common/search/search.component.js"></script>
-    <script src="app/common/search/search.controller.js"></script>
-    <script src="/app/components/movieDetails/movieDetails.component.js"></script>
-    <script src="/app/components/movieDetails/movieDetails.controller.js"></script>
+    <script src="/app/shared/moviesLibraryShort/moviesLibraryShort.component.js"></script>
+    <script src="/app/shared/moviesLibraryShort/moviesLibraryShort.controller.js"></script>
+    <script src="/app/shared/search/search.component.js"></script>
+    <script src="/app/shared/search/search.controller.js"></script>
+    <!--<script src="/app/components/movieDetails/movieDetails.component.js"></script>
+    <script src="/app/components/movieDetails/movieDetails.controller.js"></script>-->
     <script src="/app/components/nowPlaying/nowPlaying.component.js"></script>
     <script src="/app/components/nowPlaying/nowPlaying.controller.js"></script>
+    <script src="/app/components/moviesList/moviesList.component.js"></script>
+    <script src="/app/components/moviesList/moviesList.controller.js"></script>
+    <script src="/app/components/searchResults/searchResults.component.js"></script>
+    <script src="/app/components/searchResults/searchResults.controller.js"></script>
     <script src="/app/services/movies.factory.js"></script>
     <script src="/app/services/moviesLibrary.factory.js"></script>
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
@@ -35,7 +39,7 @@
             <search></search>
         </div>
     </header>
-    <movies-library></movies-library>
+    <movies-library-short></movies-library-short>
     
     <div ng-view></div>
     <footer>

@@ -1,28 +1,30 @@
 app.factory('moviesLibraryFactory', ['localStorageService', function(localStorageService) {
+    var moviesList = localStorageService.get('moviesList');
+
     var sortMoviesList = function(list) {
 
     };
 
     return {
         getMoviesList: function() {
-            var moviesList = localStorageService.get('moviesList');
             if (moviesList != null) {
-                moviesList = sortMoviesList(moviesList);
+             //   moviesList = sortMoviesList(moviesList);
+            } else {
+                moviesList = [];
             }
-
             return moviesList;
         },
 
         addMovie: function(movie) {
-            var moviesList = this.getMoviesList();
-            moviesList.push(movie);
-            moviesList = sortMoviesList(moviesList);
+            if(moviesList.map(function(item) {return item.id;}).indexOf(movie.id) == -1) {
+                moviesList.push(movie);
+            }
+            //moviesList = sortMoviesList(moviesList);
 
             localStorageService.set('moviesList', moviesList);
         },
 
         removeMovie: function(id) {
-            var moviesList = this.getMoviesList();
             var removeIndex = moviesList.map(function(item) {return item.id;}).indexOf(id);
             moviesList.splice(removeIndex, 1);
 

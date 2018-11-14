@@ -11,10 +11,11 @@ app.controller('NowPlayingController', ['moviesFactory', function (moviesFactory
             });
     };
 
-    ctrl.sortBy = function (x){
+    /*ctrl.sortBy = function (x){
         ctrl.attr = x;
         console.log(ctrl.attr);
-    }
+    }*/
+    
     ctrl.$onInit = function() {
         ctrl.getNowPlaying();
     }

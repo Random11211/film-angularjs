@@ -3,8 +3,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/', {
             template: '<now-playing></now-playing>'
         })
-        .when('/?search=:query', {
-            template: '<users-list></users-list>'
+        .when('/search=:query', {
+            template: '<search-results></search-results>'
         })
         .when('/movies-list', {
             template: '<movies-library></movies-library>'

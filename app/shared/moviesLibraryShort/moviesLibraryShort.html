@@ -1,0 +1,11 @@
+<div class="movies-library">
+    <h1>YOUR MOVIES</h1>
+    <div ng-repeat="movie in $ctrl.moviesLibrary" class="your-movie">
+            <button ng-click="$ctrl.removeMovie(movie)" class="deleteButton">-</button>
+            <a ng-href="https://www.themoviedb.org/movie/{{movie.id}}">
+                <img ng-if="!movie.poster_path" src="https://via.placeholder.com/92x138.jpg" />
+                <img ng-if="movie.poster_path" ng-src="{{'https://image.tmdb.org/t/p/w185' + movie.poster_path}}" />
+            </a>
+        <h2>{{movie.original_title}}</h2>
+    </div>
+</div>
