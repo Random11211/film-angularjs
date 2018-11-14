@@ -15,7 +15,4 @@ app.controller('MoviesLibraryShortController', ['moviesLibraryFactory', function
         ctrl.attr = x;
         console.log(ctrl.attr);
     }*/
-    //ctrl.$onInit = function() {
-     //   ctrl.getMoviesLibrary();
-    //}
 }]);

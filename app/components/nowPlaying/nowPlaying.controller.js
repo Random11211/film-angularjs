@@ -5,16 +5,11 @@ app.controller('NowPlayingController', ['moviesFactory', function (moviesFactory
     ctrl.getNowPlaying = function() {
         moviesFactory.getNowPlaying()
             .then(function (response) {
-                ctrl.nowPlayingList = response.data.results;
+                ctrl.nowPlayingList = response;
             }, function (error) {
-                console.log("ERROR: " + error.message);
+                console.log(error);
             });
     };
-
-    /*ctrl.sortBy = function (x){
-        ctrl.attr = x;
-        console.log(ctrl.attr);
-    }*/
     
     ctrl.$onInit = function() {
         ctrl.getNowPlaying();
