@@ -185,6 +185,23 @@ footer {
     font-family: inherit;
 }
 
+.options_sort_and_filter button, select {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #f44336;
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 15px;
+}
+
 .details {
     margin-top: 15px;
 }

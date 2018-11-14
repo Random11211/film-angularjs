@@ -1,6 +1,6 @@
 app.factory('moviesLibraryFactory', ['localStorageService', function(localStorageService) {
     var moviesList = localStorageService.get('moviesList');
-
+    
     var sortMoviesList = function(list) {
 
     };
