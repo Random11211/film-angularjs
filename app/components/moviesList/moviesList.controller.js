@@ -13,8 +13,7 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$s
             });
     };
 
-    ctrl.showReview = function (movie) {
-        console.log("COŚ");
+    ctrl.hasReview = function (movie) {
         if (ctrl.isOnList(movie.id)) {
             for (var i = 0; i < ctrl.watchlist.length; i++) {
                 if (ctrl.watchlist[i].id === movie.id && typeof (ctrl.watchlist[i]).review !== 'undefined') {
@@ -22,9 +21,8 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$s
                     return true;
                 }
             }
-        }
-            console.log("false");
             return false;
+        }
 
     };
 

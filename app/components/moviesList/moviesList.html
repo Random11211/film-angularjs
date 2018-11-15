@@ -31,6 +31,18 @@
                     </li>
                 </ul>
             </div>
+
+            <div ng-show="$ctrl.hasReview(movie)">
+                </br>
+                <h2>
+                    YOUR REVIEW
+                </h2>
+                <p>
+                    {{movie.review.comment}}
+                </p>
+                <p>RATE: {{movie.review.value}}</p>
+            </div>
+
             <div ng-show="addReview" class="review">
                 <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model="$ctrl.review.comment"></textarea>
                 <select ng-model="$ctrl.review.value">
@@ -56,10 +68,8 @@
                 <button ng-show='!details'>Show details</button>
                 <button ng-show='details'>Hide details</button>
             </p>
-            <button ng-click="addReview = !addReview" ng-show="$ctrl.showReview(movie)">Add review</button>
-            <p ng-show="!$ctrl.showReview(movie)">
-               {{movie.review.comment}}
-            </p>
+            <button ng-click="addReview = !addReview" ng-show="$ctrl.isOnList(movie.id) && !$ctrl.hasReview(movie)">Add review</button>
+            
             <h2>Release date:</h2> {{movie.release_date}}
         </div>
 
