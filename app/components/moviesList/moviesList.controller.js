@@ -51,6 +51,7 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$s
         ctrl.review={};
     };
 
+    
     ctrl.isOnList = function (id) {
         //var watchlist = watchlistFactory.getWatchlist();
         for (var i = 0; i < ctrl.watchlist.length; i++) {

@@ -6,6 +6,7 @@ app.controller('NowPlayingController', ['moviesFactory', function (moviesFactory
         moviesFactory.getNowPlaying()
             .then(function (response) {
                 ctrl.nowPlayingList = response;
+                
             }, function (error) {
                 console.log(error);
             });

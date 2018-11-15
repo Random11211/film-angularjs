@@ -6,8 +6,10 @@
 <ul class="movies-list">
     <li class="movie-details" ng-repeat="movie in $ctrl.list | limitTo:10 | orderBy: $ctrl.propertyName: $ctrl.reverse">
         <div class="col1">
+            <a ng-href="https://www.themoviedb.org/movie/{{movie.id}}">
             <img ng-if="!movie.poster_path" src="https://via.placeholder.com/92x138.jpg" />
             <img ng-if="movie.poster_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + movie.poster_path}}" />
+            </a>
         </div>
         <div class="col2">
             <h1>{{movie.original_title}}</h1>
@@ -50,6 +52,7 @@
             <div ng-show="addReview" class="review">
                 <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model="$ctrl.review.comment"></textarea>
                 <select ng-model="$ctrl.review.value">
+                    <option value="0">---Rate movie---</option> <!-- not selected / blank option -->
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
