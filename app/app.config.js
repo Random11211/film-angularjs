@@ -6,15 +6,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/search=:query', {
             template: '<search-results></search-results>'
         })
-        .when('/movies-list', {
-            template: '<movies-library></movies-library>'
+        .when('/watchlist', {
+            template: '<watchlist></watchlist>'
         })
-        .when('/details/:id', {
-            template: '<movie-details><movie-details>'
-        })
-        .otherwise({ redirectTo: '/' });;
+        .otherwise({ redirectTo: '/' });
 }]);
 
-app.config(['localStorageServiceProvider', function(localStorageServiceProvider){
+app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('movies-app');
 }])

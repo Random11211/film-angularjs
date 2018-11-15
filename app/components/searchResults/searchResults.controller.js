@@ -4,7 +4,6 @@ app.controller('SearchResultsController', ['$routeParams', 'moviesFactory', func
     ctrl.movies;
 
     ctrl.searchMovies = function searchMovies() {
-        // var title = $routeParams.query;
         var queryString = ctrl.title.replace(/ /g, '+');
         moviesFactory.getMovies(queryString)
             .then(function (response) {

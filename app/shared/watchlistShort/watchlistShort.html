@@ -1,0 +1,25 @@
+<div class="movies-library">
+    <h1>YOUR MOVIES</h1>
+    <div ng-if="$ctrl.list.length == 0">Your watchlist is empty</div>
+    <div ng-if="$ctrl.list.length > 0">
+        <div class="options">
+            <span>Sort by: </span>
+            <button ng-click="$ctrl.sortBy('original_title')">Title</button>
+            <button ng-click="$ctrl.sortBy('release_date')">Release date</button>
+            <span>
+                <a href="#!/watchlist"><button>Show all</button></a>
+            </span>
+        </div>
+
+        <div ng-repeat="movie in $ctrl.list | limitTo: 5 | orderBy: $ctrl.propertyName: $ctrl.reverse" class="your-movie">
+            <a ng-href="https://www.themoviedb.org/movie/{{movie.id}}">
+                <img ng-if="!movie.poster_path" src="https://via.placeholder.com/92x138.jpg" />
+                <img ng-if="movie.poster_path" ng-src="{{'https://image.tmdb.org/t/p/w185' + movie.poster_path}}" />
+            </a>
+            <h2>{{movie.original_title}}</h2>
+            <h3>{{movie.release_date}}</h3>
+            <button ng-click="$ctrl.removeMovie(movie)" class="deleteButton"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+</div>

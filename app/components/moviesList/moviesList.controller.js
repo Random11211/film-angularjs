@@ -1,4 +1,4 @@
-app.controller('MoviesListController', ['moviesFactory', 'moviesLibraryFactory', function (moviesFactory, moviesLibraryFactory) {
+app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', function (moviesFactory, watchlistFactory) {
     var ctrl = this;
 
     ctrl.getCredits = function (movie) {
@@ -23,16 +23,28 @@ app.controller('MoviesListController', ['moviesFactory', 'moviesLibraryFactory',
         return directors;
     }
 
-    ctrl.addToLibrary = function (movie) {
-        moviesLibraryFactory.addMovie(movie);
+    ctrl.addToWatchlist = function (movie) {
+        watchlistFactory.addMovie(movie);
     };
 
+    ctrl.isOnList = function (id) {
+        var watchlist = watchlistFactory.getWatchlist();
+        for (var i = 0; i < watchlist.length; i++) {
+            if (watchlist[i].id === id) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
     ctrl.$onChanges = function (changes) {
-        if(ctrl.list != null) {
+        if (ctrl.list != null) {
             (ctrl.list).forEach(function (movie) {
                 ctrl.getCredits(movie);
             });
         }
-        
+
     }
 }]);

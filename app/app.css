@@ -94,8 +94,9 @@ footer {
 
 .logo h1 {
     color: red;
-    font-size: 30px;
+    font-size: 50px;
     margin-left: 30px;
+    text-align: left;
 }
 
 .search {
@@ -111,23 +112,20 @@ footer {
     font-size: 16px;
 }
 
-.search button {
-    font-size: 20px;
-    height: 40px;
-    width: 40px;
-    background-color: rgb(9, 50, 63);
-    color: white;
+.search button, .deleteButton {
+    margin:auto;
 }
 
-.search button:hover {
-    color: black;
+.movies-list {
+    display: inline-block;
+    padding: 30px 20px 30px 20px;
+    border-bottom: 1px solid rgb(63, 59, 59);
 }
 
 .movie-details {
-    width: 50%;
     float: left;
-    padding: 30px 20px 30px 20px;
-    border-bottom: 1px solid rgb(63, 59, 59);
+    list-style: outside none none;
+    width: 50%;
 }
 
 .movie-details:hover {
@@ -145,13 +143,18 @@ footer {
 }*/
 
 .col2 {
+    text-align: center;
     width: 60%;
     float: left;
     padding: 10px 10px 10px 30px;
 }
 
+.overview {
+    text-align: left;
+}
+
 .col2 h1 {
-    text-align: center;
+    
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight:800;
@@ -169,7 +172,7 @@ footer {
     font-weight:500;
 }
 
-.col3 button {
+/*.col3 button {
     border: none;
     display: inline-block;
     padding: 8px 16px;
@@ -183,13 +186,13 @@ footer {
     cursor: pointer;
     white-space: nowrap;
     font-family: inherit;
-}
+}*/
 
-.options_sort_and_filter button, select {
+button{
     border: none;
     display: inline-block;
     padding: 8px 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     vertical-align: middle;
     overflow: hidden;
     text-decoration: none;
@@ -200,6 +203,13 @@ footer {
     white-space: nowrap;
     font-family: inherit;
     font-size: 15px;
+}
+button:hover {
+    background-color: rgb(119, 18, 18);
+    color: black;
+}
+.options span > a {
+    margin-left: 25px;
 }
 
 .details {
@@ -213,13 +223,13 @@ footer {
     text-align: center;
 }
 
-.np-list {
+.list-header {
     width: 100%;
     padding: 20px;
     background-color: black;
 }
 
-.np-list:after {
+.list-header:after {
     content: "";
     display: table;
     clear: both;
@@ -227,6 +237,7 @@ footer {
 
 .movies-library {
     width: 100%;
+    height: 504px;
     padding: 20px;
     background-color: rgb(9, 50, 63);
     color: white;
@@ -255,11 +266,7 @@ footer {
     border: 2px solid rgb(119, 18, 18);
 }
 
-.specialButton .deleteButton {
-    background-color: rgb(9, 50, 63);
-}
-
-.specialButton .deleteButton:hover {
+.deleteButton:hover {
     background-color: rgb(119, 18, 18);
 }
 
@@ -282,4 +289,63 @@ footer {
 a {
     text-decoration: none;
     color:inherit;
+}
+
+.unavailable {
+    background-color: #7c7c7b;
+    pointer-events: none;
+}
+
+.available {
+    background-color: #f44336;
+}
+
+.review textarea {
+    border: 2px solid #7c7c7b;
+    margin-top: 10px;
+}
+
+/*======source: https://www.w3schools.com/howto/howto_js_rangeslider.asp====*/
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background:  #f44336;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #f44336;
+    cursor: pointer; /* Cursor on hover */
+}
+
+#rateMovie{
+    width:70%;
+    margin-top: 8px;
 }

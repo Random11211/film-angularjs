@@ -1,42 +1,53 @@
-<div class="movie-details" ng-repeat="movie in $ctrl.list | limitTo:10">
-    <div class="col1">
+<ul class="movies-list">
+    <li class="movie-details" ng-repeat="movie in $ctrl.list | limitTo:10">
+        <div class="col1">
             <img ng-if="!movie.poster_path" src="https://via.placeholder.com/92x138.jpg" />
             <img ng-if="movie.poster_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + movie.poster_path}}" />
-    </div>
-    <div class="col2">
-        <h1>{{movie.original_title}}</h1>
-        <h2>Overview:</h2> 
-        <p>{{movie.overview}}</p>
-        <div ng-show='details' class="details">
-            <h2>Directors: </h2>
-            <ul class="directors-list">
-                <li ng-repeat="director in movie.directors">
-                    <a ng-href="https://www.themoviedb.org/person/{{director.id}}">
-                        <img ng-if="!director.profile_path" src="https://via.placeholder.com/92x138.jpg" />
-                        <img ng-if="director.profile_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + director.profile_path}}" />
-                        <p>{{director.name}}</p>
-                    </a>
-                </li>
-            </ul>
-        <div style="clear:both"></div>
-            <h2>Cast</h2>
-            <ul class="cast-list">
-                <li ng-repeat="actor in movie.cast | limitTo:10">
-                    <a ng-href="https://www.themoviedb.org/person/{{actor.id}}">
-                        <img ng-if="!actor.profile_path" src="https://via.placeholder.com/92x138.jpg" />
-                        <img ng-if="actor.profile_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + actor.profile_path}}" />
-                        <p>{{actor.name}}</p>
-                    </a>
-                </li>
-            </ul>
         </div>
-    </div>
-    <div class="col3">
-        <button ng-click="$ctrl.addToLibrary(movie)">Add to library</button>
-        <p ng-click="details = !details">
-            <button ng-show='!details'>Show details</button>
-            <button ng-show='details'>Hide details</button>
-        </p>
-        <h2>Release date:</h2> {{movie.release_date}}
-    </div>
-</div>
+        <div class="col2">
+            <h1>{{movie.original_title}}</h1>
+            <h2>Overview:</h2>
+            <p class="overview">{{movie.overview}}</p>
+            <div ng-show='details' class="details">
+                <h2>Directors: </h2>
+                <ul class="directors-list">
+                    <li ng-repeat="director in movie.directors">
+                        <a ng-href="https://www.themoviedb.org/person/{{director.id}}">
+                            <img ng-if="!director.profile_path" src="https://via.placeholder.com/92x138.jpg" />
+                            <img ng-if="director.profile_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + director.profile_path}}" />
+                            <p>{{director.name}}</p>
+                        </a>
+                    </li>
+                </ul>
+                <div style="clear:both"></div>
+                <h2>Cast</h2>
+                <ul class="cast-list">
+                    <li ng-repeat="actor in movie.cast | limitTo:10">
+                        <a ng-href="https://www.themoviedb.org/person/{{actor.id}}">
+                            <img ng-if="!actor.profile_path" src="https://via.placeholder.com/92x138.jpg" />
+                            <img ng-if="actor.profile_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + actor.profile_path}}" />
+                            <p>{{actor.name}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="addReview" class="review">
+                <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model=""></textarea>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="10" value="$ctrl.review" step="1" class="slider" id="rateMovie">
+                    <label for="rateMovie"></label>
+                </div>
+            </div>
+        </div>
+        <div class="col3">
+            <button ng-click="$ctrl.addToWatchlist(movie)" ng-class="$ctrl.isOnList(movie.id) ? 'unavailable' : 'available'">Add
+                to watchlist</button>
+            <p ng-click="details = !details">
+                <button ng-show='!details'>Show details</button>
+                <button ng-show='details'>Hide details</button>
+            </p>
+            <button ng-click="addReview = !addReview" ng-show='$ctrl.isOnList(movie.id) && !$ctrl.review'>Add review</button>
+            <h2>Release date:</h2> {{movie.release_date}}
+        </div>
+
+</ul>

@@ -37,8 +37,6 @@ app.factory('moviesFactory', ['$http', function ($http) {
     }
 
     moviesFactory.getCredits = function (id) {
-        console.log(id);
-
         return $http.get(apiURL + '/movie/' + id + '/credits?' + apiKey)
             .then(
                 function (response) {
@@ -52,8 +50,5 @@ app.factory('moviesFactory', ['$http', function ($http) {
                 });
     }
 
-    // moviesFactory.sortBy = function(attr){
-    //     return $http.get(apiURL + '/discover/movie?' + apiKey + 'sort_by=' + attr);
-    // }
     return moviesFactory;
 }]);
