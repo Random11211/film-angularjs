@@ -23,6 +23,13 @@ app.factory('watchlistFactory', ['localStorageService', function(localStorageSer
             watchlist.splice(removeIndex, 1);
 
             localStorageService.set('watchlist', watchlist);
+        },
+        
+        saveReview: function(movie, review) {
+            var index = watchlist.map(function(item) {return item.id;}).indexOf(movie.id);
+            watchlist[index].review = review;
+
+            localStorageService.set('watchlist', watchlist);
         }
 
     };

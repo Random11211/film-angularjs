@@ -32,11 +32,21 @@
                 </ul>
             </div>
             <div ng-show="addReview" class="review">
-                <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model=""></textarea>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="10" value="$ctrl.review" step="1" class="slider" id="rateMovie">
-                    <label for="rateMovie"></label>
-                </div>
+                <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model="$ctrl.review.comment"></textarea>
+                <select ng-model="$ctrl.review.value">
+                    <option value="">---Rate movie---</option> <!-- not selected / blank option -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button ng-click="$ctrl.createReview(movie)">Save</button>
             </div>
         </div>
         <div class="col3">
@@ -46,7 +56,10 @@
                 <button ng-show='!details'>Show details</button>
                 <button ng-show='details'>Hide details</button>
             </p>
-            <button ng-click="addReview = !addReview" ng-show='$ctrl.isOnList(movie.id) && !$ctrl.review'>Add review</button>
+            <button ng-click="addReview = !addReview" ng-show="$ctrl.showReview(movie)">Add review</button>
+            <p ng-show="!$ctrl.showReview(movie)">
+               {{movie.review.comment}}
+            </p>
             <h2>Release date:</h2> {{movie.release_date}}
         </div>
 

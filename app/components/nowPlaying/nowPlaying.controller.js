@@ -1,6 +1,6 @@
 app.controller('NowPlayingController', ['moviesFactory', function (moviesFactory) {
     var ctrl = this;
-    ctrl.nowPlayingList = [];
+    ctrl.nowPlayingList;
 
     ctrl.getNowPlaying = function() {
         moviesFactory.getNowPlaying()

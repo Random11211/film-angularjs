@@ -1,5 +1,7 @@
-app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', function (moviesFactory, watchlistFactory) {
+app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$scope', function (moviesFactory, watchlistFactory, $scope) {
     var ctrl = this;
+    ctrl.review;
+    ctrl.watchlist = watchlistFactory.getWatchlist();
 
     ctrl.getCredits = function (movie) {
         moviesFactory.getCredits(movie.id)
@@ -9,7 +11,22 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', fun
             }, function (error) {
                 console.log(error);
             });
-    }
+    };
+
+    ctrl.showReview = function (movie) {
+        console.log("COŚ");
+        if (ctrl.isOnList(movie.id)) {
+            for (var i = 0; i < ctrl.watchlist.length; i++) {
+                if (ctrl.watchlist[i].id === movie.id && typeof (ctrl.watchlist[i]).review !== 'undefined') {
+                    movie.review = ctrl.watchlist[i].review;
+                    return true;
+                }
+            }
+        }
+            console.log("false");
+            return false;
+
+    };
 
     ctrl.getDirectors = function (crew) {
         var directors = [];
@@ -27,17 +44,26 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', fun
         watchlistFactory.addMovie(movie);
     };
 
+    ctrl.createReview = function (movie) {
+        for (var i = 0; i < ctrl.watchlist.length; i++) {
+            if (ctrl.watchlist[i].id === movie.id) {
+                watchlistFactory.saveReview(ctrl.watchlist[i], ctrl.review);
+            }
+        }
+    };
+
     ctrl.isOnList = function (id) {
-        var watchlist = watchlistFactory.getWatchlist();
-        for (var i = 0; i < watchlist.length; i++) {
-            if (watchlist[i].id === id) {
+        //var watchlist = watchlistFactory.getWatchlist();
+        for (var i = 0; i < ctrl.watchlist.length; i++) {
+            if (ctrl.watchlist[i].id === id) {
+                //  console.log(ctrl.watchlist[i].review);
                 return true;
             }
         }
 
         return false;
 
-    }
+    };
 
     ctrl.$onChanges = function (changes) {
         if (ctrl.list != null) {
@@ -45,6 +71,6 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', fun
                 ctrl.getCredits(movie);
             });
         }
+    };
 
-    }
 }]);
