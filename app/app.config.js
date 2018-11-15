@@ -14,4 +14,4 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('movies-app');
-}])
+}]);

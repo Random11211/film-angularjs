@@ -48,6 +48,7 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$s
                 watchlistFactory.saveReview(ctrl.watchlist[i], ctrl.review);
             }
         }
+        ctrl.review={};
     };
 
     ctrl.isOnList = function (id) {
@@ -69,6 +70,14 @@ app.controller('MoviesListController', ['moviesFactory', 'watchlistFactory', '$s
                 ctrl.getCredits(movie);
             });
         }
+    };
+
+    ctrl.propertyName = 'original_title';
+    ctrl.reverse = true;
+
+    ctrl.sortBy = function (propertyName) {
+        ctrl.reverse = (propertyName !== null && ctrl.propertyName === propertyName) ? !ctrl.reverse : false;
+        ctrl.propertyName = propertyName;
     };
 
 }]);

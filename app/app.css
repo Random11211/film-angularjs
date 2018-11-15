@@ -126,6 +126,7 @@ footer {
     float: left;
     list-style: outside none none;
     width: 50%;
+    min-height:300px;
 }
 
 .movie-details:hover {
@@ -212,6 +213,10 @@ button:hover {
     margin-left: 25px;
 }
 
+.options2 {
+    text-align:center;
+}
+
 .details {
     margin-top: 15px;
 }
@@ -260,6 +265,7 @@ button:hover {
     float: left;
     padding: 20px;
     text-align: center;
+    width:20%;
 }
 
 .your-movie img {
@@ -348,4 +354,31 @@ a {
 #review-value{
     width:70%;
     margin-top: 8px;
+}
+
+.display-review {
+    width: 80%;
+    background-color: #6e1d17;
+    margin-top:15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review select {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #f44336;
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    width: 150px;
 }

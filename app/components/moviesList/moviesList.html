@@ -1,5 +1,10 @@
+<div class="options2">
+    <span>Sort by: </span>
+    <button ng-click="$ctrl.sortBy('original_title')">Title</button>
+    <button ng-click="$ctrl.sortBy('release_date')">Release date</button>
+</div>
 <ul class="movies-list">
-    <li class="movie-details" ng-repeat="movie in $ctrl.list | limitTo:10">
+    <li class="movie-details" ng-repeat="movie in $ctrl.list | limitTo:10 | orderBy: $ctrl.propertyName: $ctrl.reverse">
         <div class="col1">
             <img ng-if="!movie.poster_path" src="https://via.placeholder.com/92x138.jpg" />
             <img ng-if="movie.poster_path" ng-src="{{'https://image.tmdb.org/t/p/w92' + movie.poster_path}}" />
@@ -32,8 +37,7 @@
                 </ul>
             </div>
 
-            <div ng-show="$ctrl.hasReview(movie)">
-                </br>
+            <div ng-show="$ctrl.hasReview(movie)" class="display-review">
                 <h2>
                     YOUR REVIEW
                 </h2>
@@ -46,7 +50,6 @@
             <div ng-show="addReview" class="review">
                 <textarea name="review-text" cols="40" rows="5" placeholder="Share your opinion" ng-model="$ctrl.review.comment"></textarea>
                 <select ng-model="$ctrl.review.value">
-                    <option value="">---Rate movie---</option> <!-- not selected / blank option -->
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -58,7 +61,7 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select>
-                <button ng-click="$ctrl.createReview(movie)">Save</button>
+                <button ng-show="$ctrl.review.comment.length && ($ctrl.review.value > 0)" ng-click="$ctrl.createReview(movie)">Save</button>
             </div>
         </div>
         <div class="col3">
@@ -68,8 +71,9 @@
                 <button ng-show='!details'>Show details</button>
                 <button ng-show='details'>Hide details</button>
             </p>
-            <button ng-click="addReview = !addReview" ng-show="$ctrl.isOnList(movie.id) && !$ctrl.hasReview(movie)">Add review</button>
-            
+            <button ng-click="addReview = !addReview" ng-show="$ctrl.isOnList(movie.id) && !$ctrl.hasReview(movie)">Add
+                review</button>
+
             <h2>Release date:</h2> {{movie.release_date}}
         </div>
 
